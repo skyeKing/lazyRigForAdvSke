@@ -1,0 +1,9 @@
+global proc rebuildskinattachctrlswrapsystem()
+{
+    //解决次级表情不跟随模型移动的问题
+    string $con[] = `listConnections -t "mesh" SkinAttachCtrlsWrap `;
+    delete SkinAttachCtrlsWrap;
+    select AttacherCurve $con[0];
+    asCreateWrap ("SkinAttachCtrlsWrap",0,0,1,0,0);
+    print "重建SkinAttachCtrlsWrap完成"
+}
